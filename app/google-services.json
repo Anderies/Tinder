@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "400436389068",
+    "firebase_url": "https://tinder-f33c5.firebaseio.com",
+    "project_id": "tinder-f33c5",
+    "storage_bucket": "tinder-f33c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400436389068:android:611d22aca0202031",
+        "android_client_info": {
+          "package_name": "org.example.andeli.tinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400436389068-6en84kib1h9lsne6uf1msbpd4sdt1fsq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.example.andeli.tinder",
+            "certificate_hash": "792455c3c4933e87a5ebca3914df8f54d5180827"
+          }
+        },
+        {
+          "client_id": "400436389068-s3dai53le4mf6rn6submg7o6246nosn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChQ43U-dXij9zGFddeKjbwJnGD1Vgf0TQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400436389068-s3dai53le4mf6rn6submg7o6246nosn9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
