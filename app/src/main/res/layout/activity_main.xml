@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
         android:background="#ffeee9e2"
@@ -14,5 +13,10 @@
         android:layout_height="match_parent"
         app:rotation_degrees="15.5"
         tools:context=".MyActivity" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:onClick="logoutUser"/>
 
 </android.support.constraint.ConstraintLayout>
