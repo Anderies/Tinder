@@ -26,22 +26,28 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private cards cards_datap[];
+    private cards cards_data[];
 
     private arrayAdapter arrayAdapter;
     private int i;
+
+    private String currentUid;
 
     private FirebaseAuth mAuth;
 
     ListView listView;
     List<cards> rowItems;
+    private DatabaseReference userDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        userDb = FirebaseDatabase.getInstance().getReference().child("Users");
+
         mAuth = FirebaseAuth.getInstance();
+        currentUid = mAuth.getCurrentUser().getUid();
         checkUserSex();
 
 
@@ -65,14 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                //Do something on the left!
-                //You also have access to the original object.
-                //If you want to use it just cast it (String) dataObject
+                cards obj = (cards) dataObject;
+                String userId = obj.getUserId();
+                userDb.child(oppositeSex).child(userId).child("connections").child("nope").child(currentUid).setValue(true);
                 Toast.makeText(MainActivity.this,"Left",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
+                cards obj = (cards) dataObject;
+                String userId = obj.getUserId();
+                userDb.child(oppositeSex).child(userId).child("connections").child("yeps").child(currentUid).setValue(true);
                 Toast.makeText(MainActivity.this,"Right",Toast.LENGTH_SHORT).show();
             }
 
@@ -167,7 +176,8 @@ public class MainActivity extends AppCompatActivity {
         oppositeSexDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-               if (dataSnapshot.exists()){
+               if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUid)
+                       && !dataSnapshot.child("connections").child("yeps").hasChild(currentUid)){
 
                    cards item = new cards(dataSnapshot.getKey(),dataSnapshot.child("name").getValue().toString());
                    rowItems.add(item);
