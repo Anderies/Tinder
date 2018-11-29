@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
@@ -13,10 +15,23 @@
         android:layout_height="match_parent"
         app:rotation_degrees="15.5"
         tools:context=".MyActivity" />
-    <Button
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:onClick="logoutUser"/>
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out"
+            android:onClick="logoutUser"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:onClick="settingsUser"/>
+    </LinearLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>

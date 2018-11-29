@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private String userSex;
+    public String userSex;
     private String oppositeSex;
     public void checkUserSex(){
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -211,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
             }
 
             @Override
@@ -229,6 +230,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,ChooseLoginRegistrationActivity.class);
         startActivity(intent);
         finish();
+        return;
+    }
+
+    public void settingsUser(View view) {
+        Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+        intent.putExtra("userSex",userSex);
+        startActivity(intent);
         return;
     }
 }
